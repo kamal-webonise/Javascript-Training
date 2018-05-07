@@ -1,36 +1,40 @@
 student = []; 
+var deleteBtn = document.getElementsByClassName('delete');
 
-for( let i=0; i < 20; i++ ) {
+for( let i=0; i < 5; i++ ) {
   student[i] = {
     id: i,
     name: "Kamal" + i
   }
 }
 
-var students_list = document.getElementById('studentList');  
-var ul = document.createElement('ul');
+function display() {
+  var students_list = document.getElementById('studentList'); 
+  var ul = document.createElement('ul');
+  while(students_list.firstChild) {
+    students_list.removeChild(students_list.firstChild);
+  }
 
-student.map((student_info) => {
+  student.map((student_info) => {
+    let li = document.createElement('li');
+    let name = document.createElement('span');
+    let id = document.createElement('span');
+    let btn = document.createElement('button');
+    name.innerHTML = student_info.name;
+    id.innerHTML = student_info.id;
+    btn.innerHTML = 'Delete';
+    btn.className = 'delete';
 
-  let li = document.createElement('li');
-  let name = document.createElement('span');
-  let id = document.createElement('span');
-  let btn = document.createElement('button');
+    li.appendChild(id);
+    li.appendChild(name);
+    li.appendChild(btn);
+    ul.appendChild(li);  
+  });  
+   
+  students_list.appendChild(ul);
+};
 
-  name.innerHTML = student_info.name;
-  id.innerHTML = student_info.id;
-  btn.innerHTML = 'Delete';
-  btn.className = 'delete';
-
-  li.appendChild(id);
-  li.appendChild(name);
-  li.appendChild(btn);
-  ul.appendChild(li);  
-});  
- 
-students_list.appendChild(ul);
-
-var deleteBtn = document.getElementsByClassName('delete');
+display();
 
 if (deleteBtn.length) {
   for(let i = 0; i < deleteBtn.length ;i++) {
@@ -42,8 +46,8 @@ if (deleteBtn.length) {
         id.id == listItem
       );
       
-      student.splice(id,1);
-      event.target.parentElement.classList.add('hide');
+      student.splice(id,1);  
+      display();
     }
   }
-}  
+}
