@@ -8,6 +8,8 @@ for( let i=0; i < 5; i++ ) {
   }
 }
 
+
+
 function display() {
   var students_list = document.getElementById('studentList'); 
   var ul = document.createElement('ul');
@@ -24,7 +26,6 @@ function display() {
     id.innerHTML = student_info.id;
     btn.innerHTML = 'Delete';
     btn.className = 'delete';
-
     li.appendChild(id);
     li.appendChild(name);
     li.appendChild(btn);
@@ -32,22 +33,25 @@ function display() {
   });  
    
   students_list.appendChild(ul);
+  check();
 };
 
 display();
 
-if (deleteBtn.length) {
-  for(let i = 0; i < deleteBtn.length ;i++) {
-    deleteBtn[i].onclick = (event) => {
-      let id;
-      let listItem = event.target.parentElement.firstChild.innerHTML;
-      
-      id=student.findIndex( (id) =>
-        id.id == listItem
-      );
-      
-      student.splice(id,1);  
-      display();
+function check() {
+  if (deleteBtn.length) {
+    for(let i = 0; i < deleteBtn.length ;i++) {
+      deleteBtn[i].onclick = (event) => {
+        let id;
+        let listItem = event.target.parentElement.firstChild.innerHTML;
+        
+        id=student.findIndex( (id) =>
+          id.id == listItem
+        );
+        
+        student.splice(id,1);  
+        display();
+      }
     }
   }
 }
