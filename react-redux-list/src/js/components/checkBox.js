@@ -33,7 +33,8 @@ class CheckBox extends Component {
 		}
 		
 		dummy = { results: tempData}; 
-		this.props.dispatch(actions.showData(dummy));
+		this.props.dispatch(actions.showData(dummy)); //// Updates the Temporary Store Object (whose value is used for rendering purpose.)
+	
 	}
 
 	render() {

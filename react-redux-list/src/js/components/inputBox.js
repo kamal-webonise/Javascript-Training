@@ -24,7 +24,7 @@ class InputField extends Component {
 
 		if (flag == 1) {
 			let newData = { results: tempObj };
-			this.props.dispatch(actions.showData(newData));
+			this.props.dispatch(actions.showData(newData)); // Updates the Temporary Store Object (whose value is used for rendering purpose.)
 		}
 	}
 
