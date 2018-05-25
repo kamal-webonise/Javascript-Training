@@ -11,8 +11,8 @@ class App extends Component {
       <Router>
         <switch>
           <Route exact path='/' component={List} />
-          <Route name='info' path='/info/:id' component={Info} />
-          <Route path="*" component = {NotFound} />
+          <Route exact name='info' path='/info/:id' component={Info} />
+          <Route exact path="*" component = {NotFound} />
         </switch>  
       </Router>  
     );

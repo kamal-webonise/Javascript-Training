@@ -7,10 +7,11 @@ import DATA from './result.json'
 class List extends Component {
 
 	constructor(props) {
+		debugger;
 		super(props);
 		this.state = {
-			data: DATA,
-			permanentData: DATA,
+			data: { results : DATA},
+			permanentData: { results : DATA},
 			oneTime: true
 		}
 		this.default = this.default.bind(this);
