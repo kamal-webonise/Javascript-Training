@@ -44,4 +44,3 @@ app.post('/removetask', function(req,r) { // Users may select multiple checkbox 
 	}
 	r.redirect('/');
 });
-
