@@ -1,1 +1,1 @@
-# react-redux
+Design an application for student management where student data will come in .json file format and admin can search students based on percentage category ( distinction, first, second, fail ) four checkbox will be displayed on UI and a search field is also be provided based on Name. Relevant Data will be rendered based on the user's input.
